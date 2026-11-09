@@ -1,0 +1,5 @@
+{
+  "descricao": "Sistema NAO canonico - demonstra caso em que o algoritmo guloso NAO encontra o otimo global (usado na Analise Critica)",
+  "moedas": [4, 3, 1],
+  "valor": 6
+}

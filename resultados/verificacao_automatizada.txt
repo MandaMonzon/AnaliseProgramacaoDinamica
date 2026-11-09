@@ -1,0 +1,1 @@
+OK: 23277 verificacoes; inclusos 127 sistemas x 61 valores e casos especiais.

@@ -1,0 +1,4 @@
+Pequena | V=87 | n=5 | reps=600 | mediana guloso=0.001092 ms | mediana DP=0.004386 ms | controle=7200
+Media | V=2873 | n=7 | reps=200 | mediana guloso=0.000330 ms | mediana DP=0.076934 ms | controle=12800
+Grande comparavel | V=100000 | n=7 | reps=45 | mediana guloso=0.000951 ms | mediana DP=0.919348 ms | controle=90000
+Nao canonico | V=6 | n=3 | reps=600 | mediana guloso=0.000100 ms | mediana DP=0.000080 ms | controle=3000

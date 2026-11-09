@@ -1,0 +1,77 @@
+
+========== TESTE 1 - PEQUENA ==========
+Descricao: Teste 1 - Pequena instancia (sistema canonico, subconjunto de moedas/cedulas do Real)
+Moedas: [50, 20, 10, 5, 1] | Valor: 87
+DECISOES GULOSAS:
+  Resto antes = 87  ->  escolhe a moeda 50 (maior <= resto)  ->  usa 1 unidade(s)  ->  resto depois = 37
+  Resto antes = 37  ->  escolhe a moeda 20 (maior <= resto)  ->  usa 1 unidade(s)  ->  resto depois = 17
+  Resto antes = 17  ->  escolhe a moeda 10 (maior <= resto)  ->  usa 1 unidade(s)  ->  resto depois = 7
+  Resto antes = 7  ->  escolhe a moeda 5 (maior <= resto)  ->  usa 1 unidade(s)  ->  resto depois = 2
+  Resto antes = 2  ->  escolhe a moeda 1 (maior <= resto)  ->  usa 2 unidade(s)  ->  resto depois = 0
+Guloso: 6 moeda(s)
+Tempo guloso: 0.984475 ms
+DP Bottom-Up: 6 moeda(s) - 1x50 + 1x20 + 1x10 + 1x5 + 2x1
+Tempo DP: 1.205691 ms
+Guloso otimo? SIM
+
+========== TESTE 2 - MEDIA ==========
+Descricao: Teste 2 - media instancia (via CSV)
+Moedas: [100, 50, 20, 10, 5, 2, 1] | Valor: 2873
+Guloso: 32 moeda(s)
+Tempo guloso: 0.010836 ms
+DP Bottom-Up: 32 moeda(s) - 28x100 + 1x50 + 1x20 + 1x2 + 1x1
+Tempo DP: 1.146644 ms
+Guloso otimo? SIM
+
+========== TESTE 3 - GRANDE, COMPARAVEL ==========
+Descricao: Teste 3 - Grande instancia comparavel entre Guloso e DP Bottom-Up
+Moedas: [100, 50, 20, 10, 5, 2, 1] | Valor: 100000
+Guloso: 1000 moeda(s)
+Tempo guloso: 0.004617 ms
+DP Bottom-Up: 1000 moeda(s) - 1000x100
+Tempo DP: 7.431700 ms
+Guloso otimo? SIM
+
+========== TESTE EXTRA - NAO CANONICO ==========
+Descricao: Sistema NAO canonico - demonstra caso em que o algoritmo guloso NAO encontra o otimo global (usado na Analise Critica)
+Moedas: [4, 3, 1] | Valor: 6
+DECISOES GULOSAS:
+  Resto antes = 6  ->  escolhe a moeda 4 (maior <= resto)  ->  usa 1 unidade(s)  ->  resto depois = 2
+  Resto antes = 2  ->  escolhe a moeda 1 (maior <= resto)  ->  usa 2 unidade(s)  ->  resto depois = 0
+Guloso: 3 moeda(s)
+Tempo guloso: 0.003535 ms
+DP Bottom-Up: 2 moeda(s) - 2x3
+Tempo DP: 0.065397 ms
+Guloso otimo? NAO
+TABELA DP (estado x -> minimo): 0=0 | 1=1 | 2=2 | 3=1 | 4=1 | 5=2 | 6=2
+
+========== TESTE EXTRA - GULOSO SEM TROCO, DP COM TROCO ==========
+Descricao: Guloso nao compoe troco exato, mas DP encontra 3+3
+Moedas: [4, 3] | Valor: 6
+DECISOES GULOSAS:
+  Resto antes = 6  ->  escolhe a moeda 4 (maior <= resto)  ->  usa 1 unidade(s)  ->  resto depois = 2
+Guloso: nao obteve troco exato, resto 2
+Tempo guloso: 0.002954 ms
+DP Bottom-Up: 2 moeda(s) - 2x3
+Tempo DP: 0.005418 ms
+Guloso otimo? NAO
+TABELA DP (estado x -> minimo): 0=0 | 1=INF | 2=INF | 3=1 | 4=1 | 5=INF | 6=2
+
+========== TESTE EXTRA - IMPOSSIVEL PARA AMBOS ==========
+Descricao: Instancia realmente impossivel (nenhum par de 4 e 6 soma 5)
+Moedas: [4, 6] | Valor: 5
+DECISOES GULOSAS:
+  Resto antes = 5  ->  escolhe a moeda 4 (maior <= resto)  ->  usa 1 unidade(s)  ->  resto depois = 1
+Guloso: nao obteve troco exato, resto 1
+Tempo guloso: 0.004227 ms
+DP Bottom-Up: impossivel obter troco exato
+Tempo DP: 0.000301 ms
+Guloso otimo? NAO
+TABELA DP (estado x -> minimo): 0=0 | 1=INF | 2=INF | 3=INF | 4=1 | 5=INF
+
+========== ESTRESSE ORIGINAL - 987654321 (DP NAO ALOCADA) ==========
+Descricao: Teste 3 - Grande instancia (valor alto, para observar desempenho computacional)
+Moedas: [100, 50, 20, 10, 5, 2, 1] | Valor: 987654321
+Guloso: 9876545 moeda(s)
+Tempo guloso: 0.008843 ms
+DP: nao executada (limite de 2000000; evitar custo O(n*V)/memoria O(V)).

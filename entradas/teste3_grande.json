@@ -1,0 +1,5 @@
+{
+  "descricao": "Teste 3 - Grande instancia (valor alto, para observar desempenho computacional)",
+  "moedas": [100, 50, 20, 10, 5, 2, 1],
+  "valor": 987654321
+}

@@ -1,0 +1,5 @@
+{
+  "descricao": "Instancia realmente impossivel (nenhum par de 4 e 6 soma 5)",
+  "moedas": [4, 6],
+  "valor": 5
+}
